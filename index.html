@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Título da página</title>
+		<meta name="description" content="Sou o description da página. Uma breve descreição" />
+		<link href="estilo.css" type=text/css rel=stylesheet>
+		<link href="bootstrap/css/bootstrap.min.css" type=text/css rel=stylesheet>
+	</head>
+	<body>
+		<div id="topo">
+			<div class="menu col-md-12">
+				<div class="container">
+					<ul class="esq col-md-5">
+						<li><a href="">EMPRESA</a></li>
+						<li><a href="">PROJETOS</a></li>
+						<li><a href="">PRODUTOS</a></li>
+					</ul>
+					<div class="logo col-md-2">
+						<center><a href=""><img src="image/logo.png"></a></center>
+					</div>
+					<ul class="dir col-md-5">
+						<li><a href="">CLIENTES</a></li>
+						<li><a href="">TRABALHE CONOSCO</a></li>
+						<li><a href="">CONTATO</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="banner"></div>
+		</div>
+		<div id="body">
+			<div class="container">
+				<h2>FALE CONOSCO</h2>
+				<div class="col-md-6 form-contato">
+					<p>Entre em contato conosco preenchando o formul&aacute;rio abaixo:</p>
+					<form id="contato">
+					 	<div class="form-group">
+					    	<label for="name">Nome*</label>
+					    	<input type="text" class="form-control" id="name">
+						</div>
+						<div class="form-group">
+					    	<label for="email">E-mail*</label>
+					    	<input type="text" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+					    	<label for="telefone">Telefone</label>
+					    	<input type="tel" class="form-control" id="telefone">
+						</div>
+						<div class="form-group">
+					    	<label for="assunto">Assunto*</label>
+					    	<input type="text" class="form-control" id="assunto">
+						</div>
+						<div class="form-group">
+					    	<label for="mensagem">Mensagem*</label>
+					    	<textarea class="form-control" rows="3" id="mensagem"></textarea>
+						</div>
+						<div class="col-md-6 p-campos"><p>* Campos obrigat&oacute;rios.</p></div>
+						<div class="col-md-6 btn-enviar	"><button type="submit" class="btn btn-default">Enviar</button></div>
+					</form>
+				</div>
+				<div class="col-md-6 mapa">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.406154237618!2d-49.24209999999999!3d-25.45811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce461c8db925b%3A0x678704eaec30553b!2sAg%C3%AAncia+110!5e0!3m2!1spt-BR!2sbr!4v1420813844358" width="100%" height="500" frameborder="0" style="border: solid 5px #fff"></iframe>
+				</div>
+			</div>
+		</div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript"> </script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"> </script>
+		<script src="jquery.maskedinput.js" type="text/javascript"> </script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				jQuery("#telefone").mask("(99) 9999-9999");
+				$("#contato").submit(function(){
+			    	if($("#name").val() == ""){
+			    		alert('Digite seu nome!');
+			    		$( "#name" ).focus();
+				 		return false;
+				 	}
+				 	var email = $("#email").val();
+			    	if(email != ""){
+			        	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			         	if(!filtro.test(email)){
+			           		alert("Este endereço de email não é válido!");
+			           		$( "#email" ).focus();
+			           		return false;
+			         	}
+			      	} else {
+				 		alert('Digite um email!');
+				 		$( "#email" ).focus();
+				 		return false;
+			      	}
+			      	if($("#assunto").val() == ""){
+			    		alert('Digite o assunto!');
+			    		$( "#assunto" ).focus();
+				 		return false;
+				 	}
+				 	if($("#mensagem").val() == ""){
+			    		alert('Digite sua mensagem!');
+			    		$( "#mensagem" ).focus();
+				 		return false;
+				 	}
+			   	});
+			});
+
+		</script>
+	</body>
+</html>
